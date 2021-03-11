@@ -1,0 +1,127 @@
+<template>
+    <div :class="{'chat-sender':!right,'chat-receiver':right}">
+        <div><img :src="chatImg"></div>
+        <div>假期</div>
+        <div>
+            <div :class="{'chat-left_triangle':!right,'chat-right_triangle':right}"></div>
+            <span>哈哈哈哈哈哈哈哈嗝~~~哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</span>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "ChatBubble",
+        props: {
+            isRight: Boolean
+        },
+        data() {
+            return {
+                chatImg: require("../assets/chat.png"),
+                right: this.isRight
+            }
+        }
+    }
+</script>
+
+<style scoped>
+    .chat-sender {
+        clear: both;
+        font-size: 14px;
+        max-width: 400px;
+        float: left;
+    }
+
+    .chat-sender div:nth-of-type(1) {
+        float: left;
+    }
+
+    .chat-sender div:nth-of-type(2) {
+        margin: 0 50px 2px 50px;
+        padding: 0px;
+        color: #848484;
+        font-size: 70%;
+        text-align: left;
+    }
+
+    .chat-sender div:nth-of-type(3) {
+        background-color: white;
+        /*float: left;*/
+        margin: 0 50px 10px 50px;
+        padding: 10px 10px 10px 10px;
+        border-radius: 7px;
+        text-indent: -12px;
+    }
+
+    .chat-receiver {
+        clear: both;
+        font-size: 14px;
+        max-width: 400px;
+        float: right;
+    }
+
+    .chat-receiver div:nth-of-type(1) {
+        float: right;
+    }
+
+    .chat-receiver div:nth-of-type(2) {
+        margin: 0px 50px 2px 50px;
+        padding: 0px;
+        color: #848484;
+        font-size: 70%;
+        text-align: right;
+    }
+
+    .chat-receiver div:nth-of-type(3) {
+        /*float:right;*/
+        background-color: #b2e281;
+        margin: 0px 50px 10px 50px;
+        padding: 10px 10px 10px 10px;
+        border-radius: 7px;
+    }
+
+    .chat-receiver div:first-child img,
+    .chat-sender div:first-child img {
+        width: 40px;
+        height: 40px;
+        /*border-radius: 10%;*/
+    }
+
+    .chat-left_triangle {
+        height: 0px;
+        width: 0px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent white transparent transparent;
+        position: relative;
+        left: -22px;
+        top: 3px;
+    }
+
+    .chat-right_triangle {
+        height: 0px;
+        width: 0px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: transparent transparent transparent #b2e281;
+        position: relative;
+        right: -22px;
+        top: 3px;
+    }
+
+    .chat-notice {
+        clear: both;
+        font-size: 70%;
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .chat-notice span {
+        background-color: #cecece;
+        line-height: 25px;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
+</style>
