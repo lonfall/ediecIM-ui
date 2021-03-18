@@ -55,6 +55,9 @@
     let REGISTER = "REGISTER"
     let MSG_TEXT = "TEXT"
 
+    let host = "45.76.157.137"
+    let port = "8848"
+
     export default {
         name: 'App',
         data() {
@@ -95,7 +98,7 @@
         },
         methods: {
             initWebSocket() { //初始化weosocket
-                const wsuri = "ws://localhost:8848";
+                const wsuri = "ws://" + host + ":" + port;
                 this.websock = new WebSocket(wsuri);
                 this.websock.onmessage = this.websocketonmessage;
                 this.websock.onopen = this.websocketonopen;
