@@ -1,10 +1,10 @@
 <template>
-    <div :class="{'chat-sender':!right,'chat-receiver':right}">
+    <div :class="{'chat-sender':!isRight,'chat-receiver':isRight}">
         <div><img :src="chatImg"></div>
-        <div>假期</div>
+        <div>{{userName}}</div>
         <div>
-            <div :class="{'chat-left_triangle':!right,'chat-right_triangle':right}"></div>
-            <span>哈哈哈哈哈哈哈哈嗝~~~哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</span>
+            <div :class="{'chat-left_triangle':!isRight,'chat-right_triangle':isRight}"></div>
+            <span>{{text}}</span>
         </div>
     </div>
 </template>
@@ -13,12 +13,13 @@
     export default {
         name: "ChatBubble",
         props: {
-            isRight: Boolean
+            isRight: Boolean,
+            userName: String,
+            text: String
         },
         data() {
             return {
-                chatImg: require("../assets/chat.png"),
-                right: this.isRight
+                chatImg: require("../assets/chat.png")
             }
         }
     }

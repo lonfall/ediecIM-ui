@@ -1,14 +1,14 @@
 <template>
-    <div :class="{'group-item':true,'group-item-active':active}">
+    <div :class="{'group-item':true,'group-item-active':initActive}">
         <div class="group-item-icon">
             <img :src="chatImg" class="group-item-img"/>
         </div>
         <div class="group-item-left">
-            <div class="group-item-name">大佬匿名交友群</div>
-            <div class="group-item-last-msg">假期：哈哈哈哈哈哈哈哈嗝~~~</div>
+            <div class="group-item-name">{{name?name:'NULL'}}</div>
+            <div class="group-item-last-msg">{{lastMsg?lastMsg:''}}</div>
         </div>
         <div class="group-item-right">
-            <div class="group-item-time">18:00</div>
+            <div class="group-item-time">{{lastTime?lastTime:''}}</div>
         </div>
     </div>
 </template>
@@ -17,12 +17,14 @@
     export default {
         name: "GroupItem",
         props: {
-            initActive: Boolean
+            initActive: Boolean,
+            name: String,
+            lastMsg: String,
+            lastTime: String
         },
         data() {
             return {
-                chatImg: require("../assets/chat.png"),
-                active: this.initActive
+                chatImg: require("../assets/chat.png")
             }
         }
     }
